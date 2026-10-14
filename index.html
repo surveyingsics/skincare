@@ -1,1 +1,27 @@
-
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khảo sát về cách người tiêu dùng Việt Nam lựa chọn sản phẩm chăm sóc da</title>
+<script>
+  var FORMS = [
+    'https://forms.gle/j9yTvEmt4jh5qczP6',
+    'https://forms.gle/4bc5RRpKrmwfjUY49',
+    'https://forms.gle/AcEisQs1rpCDtkxL9'
+  ];
+  var i = null;
+  try { i = localStorage.getItem('survey_block'); } catch (e) {}
+  if (i === null || isNaN(+i) || +i >= FORMS.length) {
+    i = Math.floor(Math.random() * FORMS.length);          // chia ngẫu nhiên
+    try { localStorage.setItem('survey_block', i); } catch (e) {}
+  }
+  location.replace(FORMS[+i]);                              // tự chuyển thẳng vào form
+</script>
+</head>
+<body style="font-family:Arial,sans-serif;text-align:center;padding:40px 20px">
+  <p>Đang mở khảo sát…</p>
+  <p><a id="go" href="#">Bấm vào đây nếu trang không tự chuyển</a></p>
+  <script>document.getElementById('go').href = FORMS[+i];</script>
+</body>
+</html>
